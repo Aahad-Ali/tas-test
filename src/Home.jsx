@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 export const Home = () => {
 
     const [data, setData] = useState([]);
-    const [search, setSearch] = useState();
+    const [Search, setSearch] = useState('');
 
 
     useEffect(() => {
@@ -31,12 +31,12 @@ export const Home = () => {
                 />
                 <div className="container">
                     <div className="row">
-                        {data
+                        {data.filter((filterValue) => filterValue.title.toLowerCase().includes(Search.toLowerCase()))
 
                             .map((data) => {
                                 return (
                                     <div className="col-md-4">
-                                        <div className="card" style={{ width: "18rem" , height:"600px" ,margin:"20px"}}>
+                                        <div className="card" style={{ width: "18rem", height: "600px", margin: "20px" }}>
                                             <img src='https://media.licdn.com/dms/image/D5603AQGdCXGNoAjCAg/profile-displayphoto-shrink_200_200/0/1702290181115?e=1707955200&v=beta&t=ImgoK1w9cC6X4mTrretWtHQ8u-p_Vx1hVWQfpn5CWMI' className="card-img-top" alt="..." />
                                             <div className="card-body">
                                                 <h5 className="card-title">{data.title}</h5>
