@@ -5,15 +5,21 @@ import Login from '../Login'
 
 const Rout = () => {
   return (
-  <>
-  <BrowserRouter>
-  <Routes>
-    <Route path='/home' element={<Home />}></Route>
-    <Route path='/' element={<Login />}></Route>
+    <>
+      <BrowserRouter>
+        <Routes>
 
-  </Routes>
-  </BrowserRouter>
-  </>
+          {
+            localStorage.getItem("token") === null ?
+              <Route path='/' element={<Login />}></Route>
+              :
+              <Route path='/' element={<Home />}></Route>
+
+          }
+
+        </Routes>
+      </BrowserRouter>
+    </>
   )
 }
 

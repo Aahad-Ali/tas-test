@@ -13,7 +13,9 @@ const Login = () => {
     const login = () => {
         if (email === "abc@gmail.com" && password === "12345") {
             // alert("login successfully");
-            navigate('/home')
+            // navigate('/')
+            localStorage.setItem("token" , "token");
+            window.location="/"
         }
         else {
             alert("login Failed");

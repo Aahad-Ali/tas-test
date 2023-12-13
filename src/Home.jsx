@@ -29,6 +29,15 @@ export const Home = () => {
                     type="text"
                     className="form-control my-5"
                 />
+                <button onClick={() => {
+
+                    {
+                        localStorage.clear()
+                        window.location.reload(true)
+                    }
+
+
+                }}>log out</button>
                 <div className="container">
                     <div className="row">
                         {data.filter((filterValue) => filterValue.title.toLowerCase().includes(Search.toLowerCase()))
