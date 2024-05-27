@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import LogoutIcon from "@mui/icons-material/Logout";
 
 export const Home = () => {
-
   const [newData, setNewData] = useState([]);
+  const [newData1, setNewData1] = useState([]);
   const [Search, setSearch] = useState("");
 
   let API = "https://jsonplaceholder.typicode.com/posts";
@@ -21,6 +21,28 @@ export const Home = () => {
   useEffect(() => {
     fetch1();
   }, []);
+
+  const data11 = {
+    name: "Aahad",
+    lName: "Ali",
+    mobile: "55454545",
+    designation: "developer",
+  };
+
+  const putPost = () => {
+    fetch(API, {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify(data11),
+    })
+      .then((responce) => {
+        console.log(responce);
+        setNewData1(responce);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
   return (
     <>
@@ -42,6 +64,7 @@ export const Home = () => {
         >
           <LogoutIcon /> log out
         </button>
+        <button onClick={putPost}>cccc</button>
         <div className="container">
           <div className="row">
             {newData
